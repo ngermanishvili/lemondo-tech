@@ -1,17 +1,14 @@
 "use client"
 import React from "react";
-import { navbarLeftLinks, navbarRightLinks } from "./navData";
-import RenamedNavBarStyles from "../Navbar/NavBar.module.scss";
+import { navbarLeftLinks, navbarRightLinks } from "./data/navData";
+import RenamedNavBarStyles from "./NavBar.module.scss";
 
 const RenamedNavBar: React.FC = (): JSX.Element => {
-    const renderNavBarItems = (links: string[]): JSX.Element[] =>
-        links.map(
-            (link: string, index: number): JSX.Element => (
-                <div key={index} className={RenamedNavBarStyles.newItem}>
-                    {link}
-                </div>
-            )
-        );
+    const renderNavBarItems = (links: string[]): JSX.Element[] => links.map((link: string, index: number): JSX.Element => (
+        <div key={index} className={RenamedNavBarStyles.newItem}>
+            {link}
+        </div>
+    ));
 
     return (
         <div className={RenamedNavBarStyles.newNavbar}>

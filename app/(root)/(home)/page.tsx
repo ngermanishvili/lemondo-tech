@@ -1,5 +1,5 @@
 
-import NavBar from '@/components/Navbar/index'
+import NavBar from '@/components/NavBar/index'
 import Banner from '@/components/Banner'
 import styles from '../../page.module.scss';  // Corrected import statement
 import SortComponent from "@/components/Sort/index";

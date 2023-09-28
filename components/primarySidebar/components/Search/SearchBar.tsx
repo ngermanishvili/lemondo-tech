@@ -15,6 +15,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ searchQuery, setSearchQuery }) =>
 
     return (
         <>
+        <div className={styles.searchQ}>
             <input
                 type="text"
                 value={searchQuery}
@@ -22,6 +23,8 @@ const SearchBar: React.FC<SearchBarProps> = ({ searchQuery, setSearchQuery }) =>
                 placeholder="სახელით ძიება"
                 className={styles.input}
             />
+                    </div>
+
         </>
     );
 };

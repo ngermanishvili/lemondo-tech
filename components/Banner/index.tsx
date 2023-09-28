@@ -1,5 +1,3 @@
-console.error = function() {};
-
 import React from "react";
 import SloganStyles from "@/styles/components/Slogan.module.scss";
 

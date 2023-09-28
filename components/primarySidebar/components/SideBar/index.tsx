@@ -1,33 +1,34 @@
 "use client";
-import React, {ChangeEvent, useState} from "react";
-import {FilterCriteria} from "../../../../types/index";
-import {useSearchStore} from "../../../../store/search.store";
-import {useFilterStore} from "../../../../store/filteredstore";
+import React, { ChangeEvent, useState } from "react";
+import { FilterCriteria } from "../../../../types/index";
+import { useSearchStore } from "../../../../store/search.store";
+import { useFilterStore } from "../../../../store/filteredstore";
 import SymbolCountFilter from "./components/SymbolCountFilter/SymbolCountFilter";
 import SearchBar from "../Search/SearchBar";
 import Domzone from "../DomZone/DomZone";
 import Categories from "../Categories/Categories";
 import PriceFilter from "./components/PriceFilter/PriceFilter";
 import styles from "./SideBar.module.scss";
+import ReactSlider from 'react-slider'; // Import ReactSlider if it's an external package
 
 const Sidebar: React.FC = () => {
-  const {filterCriteria, updateFilter} = useFilterStore();  
-  const {searchQuery, setSearchQuery} = useSearchStore();
+  const { filterCriteria, updateFilter } = useFilterStore();
+  const { searchQuery, setSearchQuery } = useSearchStore();
   const [sidebarVisible, setSidebarVisible] = useState(false);
 
-  const {minPrice, maxPrice, symbolCountMin, symbolCountMax} = filterCriteria;
+  const { minPrice, maxPrice, symbolCountMin, symbolCountMax } = filterCriteria;
   const toggleSidebarVisibility = () => {
     setSidebarVisible(!sidebarVisible);
   };
 
   //? Update handlers from zustand
   const handleSymbolCountChange = (values: [number, number]) => {
-    updateFilter({symbolCountMin: values[0], symbolCountMax: values[1]});
+    updateFilter({ symbolCountMin: values[0], symbolCountMax: values[1] });
   };
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const {name, value} = event.target;
-    updateFilter({...filterCriteria, [name]: value});
+    const { name, value } = event.target;
+    updateFilter({ ...filterCriteria, [name]: value });
   };
 
   const handlePriceChange = (values: [number, number]) => {
@@ -41,7 +42,7 @@ const Sidebar: React.FC = () => {
     const updatedDomzones = filterCriteria.selectedDomzones.includes(domzone)
       ? filterCriteria.selectedDomzones.filter((dz) => dz !== domzone)
       : [...filterCriteria.selectedDomzones, domzone];
-    updateFilter({selectedDomzones: updatedDomzones});
+    updateFilter({ selectedDomzones: updatedDomzones });
   };
 
   const handleCategoryChange = (category: string) => {
@@ -50,7 +51,7 @@ const Sidebar: React.FC = () => {
     )
       ? filterCriteria.selectedCategories.filter((c) => c !== category)
       : [...filterCriteria.selectedCategories, category];
-    updateFilter({selectedCategories: updatedCategories});
+    updateFilter({ selectedCategories: updatedCategories });
   };
 
   return (

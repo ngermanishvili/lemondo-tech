@@ -1,6 +1,5 @@
-// filterStore.ts
 import create from "zustand";
-import {FilterCriteria, initialFilterCriteria} from "../types/index";
+import { FilterCriteria, initialFilterCriteria } from "../types/index";
 
 interface FilterStoreState {
   filterCriteria: FilterCriteria;
@@ -8,9 +7,9 @@ interface FilterStoreState {
 }
 
 export const useFilterStore = create<FilterStoreState>((set) => ({
-  filterCriteria: {...initialFilterCriteria},
+  filterCriteria: { ...initialFilterCriteria },
   updateFilter: (newFilters) =>
     set((state) => ({
-      filterCriteria: {...state.filterCriteria, ...newFilters},
+      filterCriteria: { ...state.filterCriteria, ...newFilters },
     })),
 }));

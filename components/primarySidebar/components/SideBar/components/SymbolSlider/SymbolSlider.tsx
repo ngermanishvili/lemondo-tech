@@ -1,6 +1,6 @@
-// SymbolSlider.tsx
+import React from "react";
 import ReactSlider from "react-slider";
-import './SymbolSlider.scss'
+import "./SymbolSlider.scss";
 
 interface SymbolSliderProps {
   minSymbolCount: number;
@@ -8,7 +8,11 @@ interface SymbolSliderProps {
   onSymbolCountChange: (values: [number, number]) => void;
 }
 
-const SymbolSlider: React.FC<SymbolSliderProps> = ({ minSymbolCount, maxSymbolCount, onSymbolCountChange }) => {
+const SymbolSlider: React.FC<SymbolSliderProps> = ({
+  minSymbolCount,
+  maxSymbolCount,
+  onSymbolCountChange,
+}) => {
   return (
     <div className="symbol-container">
       <div className="slider">

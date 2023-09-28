@@ -1,4 +1,3 @@
-/* YourComponent.module.scss */
 @mixin flex($justifyContent, $alignItems, $columnGap: 0px) {
   display: flex;
   align-items: $alignItems;
@@ -48,6 +47,10 @@
     display: block; /* or display: inline-block; */
   }
 
+  .btnSend1:hover + .btnSendGRN {
+    display: block; /* Show on hover */
+  }
+
   .btnSendGRN {
     display: none;
   }
@@ -90,7 +93,6 @@
     &:hover {
       width: 125px;
       height: 36px;
-      /* UI Properties */
       background: #99cc66 0% 0% no-repeat padding-box;
       border-radius: 10px;
       opacity: 1;

@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Categories.module.scss';
-import { categoryMapping } from '@/utils/constants';
+import { categoryMapping } from '../../../../utils/constants/index';
 
 interface CategoriesProps {
     selectedCategories: string[];

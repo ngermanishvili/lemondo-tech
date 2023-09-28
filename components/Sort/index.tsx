@@ -1,23 +1,19 @@
-"use client";
-import React, {useState} from "react";
+"use client"
+import React, { useState } from "react";
 import styles from "./SortComponent.module.scss";
 import Link from "next/link";
 import MobileSideBar from "../mobile/index";
-export interface FilterCriteria {
-  minPrice: string;
-  maxPrice: string;
-  symbolMin: string;
-  symbolMax: string;
-  symbolCountMin: number;
-  symbolCountMax: number;
-  charPrefix: string;
-  selectedCategories: string[];
-  category: string; // if you still need this
-  selectedDomzones: string[]; // Add selectedDomzones here
+import Image from 'next/image';
+import { LuSettings2 } from 'react-icons/lu';
+
+
+
+
+interface FilterCriteria {
+  [key: string]: string | number | string[];
 }
 
-// Export the initial filter criteria
-export const initialFilterCriteria: FilterCriteria = {
+const initialFilterCriteria: FilterCriteria = {
   minPrice: "",
   maxPrice: "",
   symbolMin: "",
@@ -26,131 +22,77 @@ export const initialFilterCriteria: FilterCriteria = {
   symbolCountMax: 26,
   charPrefix: "",
   selectedCategories: [],
-  category: "", // if you still need this
-  selectedDomzones: [], // Initialize as an empty array
+  category: "",
+  selectedDomzones: [],
 };
 
 const SortComponent = () => {
-  const initialParagraphStates = Array(7).fill(false);
-  const [paragraphStates, setParagraphStates] = useState(
-    initialParagraphStates
-  );
+  const [paragraphStates, setParagraphStates] = useState(Array(7).fill(false));
   const [showRedScreen, setShowRedScreen] = useState(false);
-
-  const handleParagraphClick = (index: number) => {
-    const newParagraphStates = initialParagraphStates.map(
-      (_, i) => i === index
-    );
-    setParagraphStates(newParagraphStates);
-  };
-
-  const handleButtonClick = () => {
-    setShowRedScreen(true);
-  };
-
   const [filterCriteria, setFilterCriteria] = useState<FilterCriteria>(
     initialFilterCriteria
   );
 
-  const handleFilterChange = (newFilters: Partial<FilterCriteria>) => {
-    setFilterCriteria((prevFilters) => ({
-      ...prevFilters,
-      ...newFilters,
-    }));
+  const handleParagraphClick = (index: number) => {
+    setParagraphStates(paragraphStates.map((_, i) => i === index));
+  };
+
+  const handleButtonClick = () => {
+    setShowRedScreen(prevShowRedScreen => !prevShowRedScreen);
+  };
+
+  const handleSidebarClose = () => {
+    setShowRedScreen(false); // Close the sidebar
   };
 
   return (
-    <>
+    <div>
       <div className={styles.title}>
-        <div style={{marginRight: "10px"}}>
-          <p
-            className={
-              paragraphStates[0] ? styles.clickedTitleOne : styles.titleOne
-            }
-          >
-            დომენები მარკეტზე: <b style={{color: "#000"}}>703</b>
+        <div style={{ marginRight: "10px" }}>
+          <p className={`${styles.titleOne} ${paragraphStates[0] && styles.clickedTitleOne}`}>
+            დომენები მარკეტზე: <b style={{ color: "#000" }}>703</b>
           </p>
         </div>
         <div className={styles.titleTwo}>
           <div className={styles.titleTwoChild}>
-            <div>
-              <p
-                className={
-                  paragraphStates[1] ? styles.clickedTitleOne : styles.titleOne
-                }
-                onClick={() => handleParagraphClick(1)}
-              >
-                <b style={{color: "#000"}}>სორტირება: </b>
-              </p>
-            </div>
-            <div>
-              <p
-                className={
-                  paragraphStates[2] ? styles.clickedTitleOne : styles.titleOne
-                }
-                onClick={() => handleParagraphClick(2)}
-              >
-                დამატების თარიღით
-              </p>
-            </div>
-            <div>
-              <p
-                className={
-                  paragraphStates[3] ? styles.clickedTitleOne : styles.titleOne
-                }
-                onClick={() => handleParagraphClick(3)}
-              >
-                ვადის ამოწურვით
-              </p>
-            </div>
-            <div className={styles.iconicTitle}>
-              <p
-                className={
-                  paragraphStates[4] ? styles.clickedTitleOne : styles.titleOne
-                }
-                onClick={() => handleParagraphClick(4)}
-              >
-                ფასით
-              </p>
-            </div>
-            <div className={styles.iconicTitle}>
-              <p
-                className={
-                  paragraphStates[5] ? styles.clickedTitleOne : styles.titleOne
-                }
-                onClick={() => handleParagraphClick(5)}
-              >
-                ფასით
-              </p>
-            </div>
-            <div>
-              <p
-                className={
-                  paragraphStates[6] ? styles.clickedTitleOne : styles.titleOne
-                }
-                onClick={() => handleParagraphClick(6)}
-              >
-                ანბანით
-              </p>
-            </div>
+            {Array.from({ length: 7 }, (_, i) => (
+              <div key={i}>
+                <p
+                  className={`${styles.titleOne} ${paragraphStates[i] && styles.clickedTitleOne}`}
+                  onClick={() => handleParagraphClick(i)}
+                >
+                  <b style={{ color: "#000" }}>
+                    {i === 1 ? "სორტირება:" : ""}
+                  </b>{" "}
+                  {i === 2 ? "დამატების თარიღით" : ""}
+                  {i === 3 ? "ვადის ამოწურვით" : ""}
+                  {i === 4 || i === 5 ? "ფასით" : ""}
+                  {i === 6 ? "ანბანით" : ""}
+                </p>
+              </div>
+            ))}
           </div>
+
         </div>
-        <Link href="https://domenebi.ge/faq">
+        <Link href="https:domenebi.ge/faq">
           <span className={styles.span}>როგორ გავყიდო დომეინი?</span>
         </Link>
       </div>
       <div className={styles.filtering}>
-        <button onClick={handleButtonClick}>mobilesidebar</button>
-        <button>kaiho</button>
+        <button title="sorting" className={styles.button1} onClick={handleButtonClick}>
+          სორტირება
+          <LuSettings2 className={styles.iconRight} />
+        </button>
+        <button className={styles.button1}>სორტირება
+          <LuSettings2 className={styles.iconRight2} />
+        </button>
       </div>
-      {showRedScreen ? (
+      {showRedScreen && (
         <div className={styles.overlay}>
           <MobileSideBar />
         </div>
-      ) : (
-        ""
       )}
-    </>
+    </div>
   );
 };
 
