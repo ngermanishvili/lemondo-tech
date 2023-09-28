@@ -49,6 +49,11 @@
 
   .btnSend1:hover + .btnSendGRN {
     display: block; /* Show on hover */
+    margin: auto 0 auto -35px;
+    z-index: 99;
+    width: 36px;
+    height: 36px;
+    display: block; /* or display: inline-block; */
   }
 
   .btnSendGRN {
