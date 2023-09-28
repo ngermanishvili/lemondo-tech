@@ -1,0 +1,171 @@
+/* YourComponent.module.scss */
+@mixin flex($justifyContent, $alignItems, $columnGap: 0px) {
+  display: flex;
+  align-items: $alignItems;
+  justify-content: $justifyContent;
+  column-gap: $columnGap;
+}
+
+.domenebi-mtavari-container {
+  width: 100%;
+  max-width: 866px;
+  height: auto;
+  text-align: center;
+  border-radius: 15px;
+  font: normal normal bold 16px;
+  letter-spacing: 0px;
+  color: #171725;
+  opacity: 1;
+}
+
+.Lari {
+  font: normal normal normal 12px;
+  letter-spacing: 0px;
+  color: #171725;
+  opacity: 1;
+}
+
+.domListContainer {
+  width: 100%;
+  background-color: #ffffff;
+  display: flex;
+  max-width: 827px;
+  height: 69px;
+  margin: 3px auto;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #f5f5f8;
+    border-radius: 10px;
+    height: 69px;
+    transition: 0.5s;
+  }
+
+  .btnSend1 {
+    margin: auto 0 auto 21px;
+    width: 36px;
+    height: 36px;
+    display: block; /* or display: inline-block; */
+  }
+
+  .btnSendGRN {
+    display: none;
+  }
+
+  .listDomain {
+    margin: auto 0 auto 20px;
+    text-align: left;
+    font-family: TKTmed;
+    font-weight: medium;
+    font-size: 16px;
+  }
+
+  .domainPrices {
+    margin: auto 20px auto auto;
+
+    .fa-solid {
+      margin-left: 3px;
+      width: 9px;
+      height: 13px;
+    }
+
+    .LariPrices {
+      height: 21px;
+      font-family: TKTmed;
+      font-weight: bold;
+      font-size: 16px;
+    }
+  }
+
+  .basketDomain {
+    margin-top: 14px;
+    margin-right: 40px;
+    position: relative;
+    width: 36px;
+    height: 36px;
+    background: #99cc66 0% 0% no-repeat padding-box;
+    border-radius: 10px;
+    opacity: 1;
+
+    &:hover {
+      width: 125px;
+      height: 36px;
+      /* UI Properties */
+      background: #99cc66 0% 0% no-repeat padding-box;
+      border-radius: 10px;
+      opacity: 1;
+    }
+
+    &::before {
+      content: attr(data-hover);
+      visibility: hidden;
+      position: relative;
+      text-align: left;
+      transition: ease-in-out;
+      color: #ffffff;
+      font-family: TKTmed;
+      font-weight: normal;
+      font-size: 14px;
+    }
+
+    &:hover::before {
+      position: relative;
+      top: 10px;
+      margin: auto 0;
+      visibility: visible;
+    }
+  }
+
+  .basketDomain-img {
+    top: 11px;
+    right: 8px;
+    position: absolute;
+    width: 20px;
+    width: 20px;
+    height: 17px;
+    opacity: 1;
+  }
+
+  .basketDomain:hover .basketDomain-img {
+    display: flex;
+    justify-content: space-between;
+    align-items: right;
+  }
+
+  .DollarPrices {
+    font-family: TKTmed;
+    font-weight: normal;
+    font-size: 12px;
+    color: #696974;
+  }
+
+  .domeins-bottom-line {
+    border: 1px solid #f1f1f5;
+    height: 0px;
+    width: 800px;
+    margin: 0 auto;
+  }
+}
+
+.line {
+  width: 786px;
+  height: 0px;
+  border: 1px solid #f1f1f5;
+  opacity: 1;
+  margin: 0 auto;
+}
+
+.alreadybag {
+  margin-top: 18px;
+  margin-right: 40px;
+  width: 125px;
+  @include flex(center, center, 6px);
+  height: 36px;
+  background: #f5f5f8;
+  border-radius: 10px;
+
+  span {
+    color: #696974;
+    font-size: 14px;
+  }
+}

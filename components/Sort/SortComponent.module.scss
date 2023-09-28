@@ -1,0 +1,132 @@
+@font-face {
+  font-family: "TKT";
+  src: url("/public/fonts//TKT-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: auto;
+  margin-right: auto;
+  width: 1286px;
+  max-width: 100%;
+  margin-top: 27px;
+  cursor: pointer;
+  letter-spacing: 0px;
+  color: #92929d;
+  opacity: 1;
+
+  .titleOne {
+    color: #6b7280;
+    font-size: 0.675rem;
+    line-height: 1.25rem;
+  }
+  .clickedTitleOne {
+    color: #99cc66;
+    font-size: 0.675rem;
+    font-weight: bold;
+    line-height: 1.25rem;
+  }
+}
+
+.domainFilter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  margin-top: 60px;
+
+  @media screen and (max-width: 768px) {
+    width: 90%;
+  }
+}
+
+.titleTwo {
+  margin-left: 200px;
+  display: flex;
+  width: 40%;
+  justify-content: space-between;
+  font-size: 14px;
+  letter-spacing: 0px;
+  color: #92929d;
+  opacity: 1;
+
+  .titleTwoChild {
+    display: flex;
+
+    div {
+      margin-left: 17px;
+    }
+  }
+
+  .titleTwoChild > p {
+    margin: 10px;
+    font-size: 14px;
+  }
+}
+
+.iconicTitle {
+  display: flex;
+  align-items: center;
+}
+
+.ml {
+  margin-left: 1px;
+}
+
+.mt {
+  margin-top: 1px;
+}
+
+.w5 {
+  width: 5px;
+}
+
+.span {
+  font-size: 14px;
+  letter-spacing: 0px;
+  color: #171725;
+  opacity: 1;
+  list-style: none;
+}
+
+.filtering {
+  display: none !important;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+
+  button {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .title {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .filtering {
+    display: flex !important;
+  }
+}
+
+.showSidebar {
+  display: block;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  opacity: 1;
+  z-index: 1;
+}
