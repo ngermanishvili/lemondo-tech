@@ -31,11 +31,9 @@ describe('Sidebar Component', () => {
     it('should handle category change', () => {
         const { getByRole } = render(<Sidebar />);
         const updateFilterMock = jest.fn();
-
         fireEvent.change(getByRole('select', { name: /category/i }), {
             target: { value: 'technology' },
         });
-
         expect(updateFilterMock).toHaveBeenCalledWith({
             selectedCategories: ['technology'],
         });

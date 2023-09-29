@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import SortComponent from '../../components/Sort/index';
+import SortComponent from '../../components/sort/index';
 
 describe('SortComponent', () => {
   it('should render without errors', () => {
