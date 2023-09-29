@@ -1,7 +1,7 @@
 "use client"
 import React from "react";
-import { navbarLeftLinks, navbarRightLinks } from "./data/navData";
-import RenamedNavBarStyles from "./NavBar.module.scss";
+import { navbarLeft, navbarRight } from "./data/navData";
+import RenamedNavBarStyles from "@/styles/components/NavBar.module.scss";
 
 const RenamedNavBar: React.FC = (): JSX.Element => {
     const renderNavBarItems = (links: string[]): JSX.Element[] => links.map((link: string, index: number): JSX.Element => (
@@ -14,10 +14,10 @@ const RenamedNavBar: React.FC = (): JSX.Element => {
         <div className={RenamedNavBarStyles.newNavbar}>
             <div className={RenamedNavBarStyles.newContainer}>
                 <div className={RenamedNavBarStyles.newPart}>
-                    {renderNavBarItems(navbarLeftLinks)}
+                    {renderNavBarItems(navbarLeft)}
                 </div>
                 <div className={RenamedNavBarStyles.newPart}>
-                    {renderNavBarItems(navbarRightLinks)}
+                    {renderNavBarItems(navbarRight)}
                 </div>
             </div>
         </div>

@@ -1,4 +1,4 @@
-export const navbarLeftLinks = [
+export const navbarLeft = [
   "დომენი",
   "ტრანსფერი",
   "ჰოსტინგი",
@@ -7,7 +7,7 @@ export const navbarLeftLinks = [
   "დომენის მარკეტი",
 ];
 
-export const navbarRightLinks = [
+export const navbarRight = [
   "ჩვენს შესახებ",
   "ფასები",
   "ბლოგი",

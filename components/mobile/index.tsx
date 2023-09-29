@@ -1,99 +1,72 @@
-"use client";
-import React, { ChangeEvent, useState } from "react";
+"use client"
+import React, { ChangeEvent, FC, useState } from "react";
 import { useSearchStore } from "../../store/search.store";
-import SymbolCountFilter from "../primarySidebar/components/SideBar/components/SymbolCountFilter/SymbolCountFilter";
-import SearchBar from "../primarySidebar/components/Search/SearchBar";
-import Domzone from "../primarySidebar/components/DomZone/DomZone";
-import Categories from "../primarySidebar/components/Categories/Categories";
-import styles from "../mobile/MobileBar.module.scss";
-import PriceFilter from "../primarySidebar/components/SideBar/components/PriceFilter/PriceFilter";
-import { SidebarHeader } from "../mobile/sidebarHeader/sidebarHeader";
-import { useFilterStore } from "../../store/filteredstore"; // Ensure this
+import { useFilterStore } from "../../store/filteredstore";
+import SymbolCountFilter from "../primarySidebar/components/SideBar/components/SymbolCountFilter";
+import SearchBar from "../primarySidebar/components/Search";
+import Domzone from "../primarySidebar/components/DomZone";
+import Categories from "../primarySidebar/components/Categories";
+import styles from "@/styles/components/MobileBar.module.scss";
+import PriceFilter from "../primarySidebar/components/SideBar/components/PriceFilter";
+import { SidebarHeader } from "./sidebarHeader";
 
-const MobileSideBar: React.FC = () => {
+interface MobileSideBarProps {
+  toggleSidebarVisibility: () => void;
+}
+
+const MobileSideBar: FC<MobileSideBarProps> = ({ toggleSidebarVisibility }) => {
   const { searchQuery, setSearchQuery } = useSearchStore();
   const { filterCriteria, updateFilter } = useFilterStore();
-  const { minPrice, maxPrice, symbolCountMin, symbolCountMax } = filterCriteria;
-  const [sidebarVisible, setSidebarVisible] = useState(false);
 
-  const toggleSidebarVisibility = () => {
-    setSidebarVisible(!sidebarVisible);
-  };
+  const {
+    minPrice,
+    maxPrice,
+    symbolCountMin,
+    symbolCountMax,
+    selectedDomzones,
+    selectedCategories,
+  } = filterCriteria;
+
+  const [sidebarVisible] = useState(false);
+
+
+  // Filter handling.
   const handleSymbolCountChange = (values: [number, number]) => {
     updateFilter({ symbolCountMin: values[0], symbolCountMax: values[1] });
   };
 
-  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = event.target;
-    updateFilter({ ...filterCriteria, [name]: value });
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    updateFilter({ ...filterCriteria, [e.target.name]: e.target.value });
   };
 
   const handlePriceChange = (values: [number, number]) => {
-    updateFilter({
-      minPrice: values[0].toString(),
-      maxPrice: values[1].toString(),
-    });
+    updateFilter({ minPrice: values[0].toString(), maxPrice: values[1].toString() });
   };
 
   const handleDomzoneChange = (domzone: string) => {
-    const updatedDomzones = filterCriteria.selectedDomzones.includes(domzone)
-      ? filterCriteria.selectedDomzones.filter((dz) => dz !== domzone)
-      : [...filterCriteria.selectedDomzones, domzone];
+    const updatedDomzones = selectedDomzones.includes(domzone)
+      ? selectedDomzones.filter(dz => dz !== domzone)
+      : [...selectedDomzones, domzone];
     updateFilter({ selectedDomzones: updatedDomzones });
   };
 
   const handleCategoryChange = (category: string) => {
-    const updatedCategories = filterCriteria.selectedCategories.includes(
-      category
-    )
-      ? filterCriteria.selectedCategories.filter((c) => c !== category)
-      : [...filterCriteria.selectedCategories, category];
+    const updatedCategories = selectedCategories.includes(category)
+      ? selectedCategories.filter(c => c !== category)
+      : [...selectedCategories, category];
     updateFilter({ selectedCategories: updatedCategories });
   };
 
   return (
-    <>
-      <div
-        className={styles.sidebar1}
-        style={
-          sidebarVisible
-            ? {
-              display: "none",
-            }
-            : {
-              display: "flex",
-              justifyContent: "center",
-              backgroundColor: "white",
-              width: "100%",
-              maxHeight: "150vh",
-              overflowY: "auto",
-            }
-        }
-      >
-        <SidebarHeader onClose={toggleSidebarVisibility} />
-        <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-        <PriceFilter
-          minPrice={minPrice}
-          maxPrice={maxPrice}
-          onPriceChange={handlePriceChange}
-          handleInputChange={handleInputChange}
-        />
-        <SymbolCountFilter
-          symbolCountMin={symbolCountMin}
-          symbolCountMax={symbolCountMax}
-          onSymbolCountChange={handleSymbolCountChange}
-          handleInputChange={handleInputChange}
-        />
-        <Categories
-          selectedCategories={filterCriteria.selectedCategories}
-          onCategoryChange={handleCategoryChange}
-        />
-        <Domzone
-          selectedDomzones={filterCriteria.selectedDomzones}
-          onDomzoneChange={handleDomzoneChange}
-        />
-      </div>
-    </>
+    <div className={sidebarVisible ? styles.sidebarHidden : styles.sidebarVisible}>
+      <SidebarHeader onClose={toggleSidebarVisibility} />
+      <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+      <PriceFilter minPrice={minPrice} maxPrice={maxPrice} onPriceChange={handlePriceChange} handleInputChange={handleInputChange} />
+      <SymbolCountFilter symbolCountMin={symbolCountMin} symbolCountMax={symbolCountMax} onSymbolCountChange={handleSymbolCountChange} handleInputChange={handleInputChange} />
+      <Categories selectedCategories={selectedCategories} onCategoryChange={handleCategoryChange} />
+      <Domzone selectedDomzones={selectedDomzones} onDomzoneChange={handleDomzoneChange} />
+      <SidebarHeader onClose={toggleSidebarVisibility} />
+    </div>
   );
 };
 

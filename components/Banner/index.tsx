@@ -1,9 +1,10 @@
+
 import React from "react";
-import SloganStyles from "@/styles/components/Slogan.module.scss";
+import styles from "@/styles/components/Banner.module.scss";
 
 const Slogan: React.FC = () => {
   return (
-    <div className={SloganStyles.slogan}>
+    <div className={styles.banner}>
       <h1>გაყიდე და იყიდე დომენი მარტივად</h1>
     </div>
   );

@@ -2,7 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import headerStyles from "../Masthead/Header.module.scss";
+import headerStyles from "@/styles/components/Header.module.scss";
 import HeaderLogo from "@/public/images/logo@2x.png";
 import BellIcon from "@/public/images/bell.svg";
 import CartIcon from "@/public/images/cart-gray.svg";
@@ -10,6 +10,7 @@ import FlagGeIcon from "@/public/images/flag-ge.svg";
 import UserIcon from "@/public/images/user.svg";
 import ArrowDownIcon from "@/public/images/arrow-down.svg";
 import { useBasketStore } from '../../store/masthead.store'; //? zustand Store.
+import Hamburger from '@/public/images/Group 4795.svg'
 
 const Header: React.FC = () => {
   const { count } = useBasketStore();
@@ -18,12 +19,16 @@ const Header: React.FC = () => {
   return (
     <div style={{ backgroundColor: '#fff' }}>
       <div className={headerStyles.headerContainer}>
-        <div className={headerStyles.logoContainer}>
-          <Link href={"/"}>
-            <div>
+        <div className={headerStyles.logoAndHamburgerContainer}>
+          <div>
+            <Image src={Hamburger} alt="burger-menu" className={headerStyles.burgerMenu} />
+          </div>
+          <div>
+            <Link href={"/"}>
               <Image src={HeaderLogo} alt="logo" />
-            </div>
-          </Link>
+            </Link>
+          </div>
+
         </div>
         <div className={headerStyles.rightContent}>
           <div className={menuItemClass}>

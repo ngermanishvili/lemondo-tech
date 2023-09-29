@@ -1,12 +1,12 @@
 "use client";
 import React, { useState } from "react";
-import styles from "./List.module.scss";
+import styles from "@/styles/components/List.module.scss";
 import { useBasketStore } from "../../store/masthead.store";
 import { Domain } from "../../types/index";
 import domainData from "../../utils/constants/index";
-import DomainItem from "./DomainItems/DomainItem";
+import DomainItem from "./DomainItems";
 import { useSearchStore } from "../../store/search.store";
-import DomainError from "./Alert/DomainError";
+import DomainError from "./Alert";
 import { useFilterStore } from "../../store/filteredstore";
 
 const List: React.FC = () => {

@@ -1,12 +1,9 @@
 "use client"
 import React, { useState } from "react";
-import styles from "./SortComponent.module.scss";
+import styles from "@/styles/components/SortComponent.module.scss";
 import Link from "next/link";
 import MobileSideBar from "../mobile/index";
-import Image from 'next/image';
 import { LuSettings2 } from 'react-icons/lu';
-
-
 
 
 interface FilterCriteria {
@@ -33,17 +30,17 @@ const SortComponent = () => {
     initialFilterCriteria
   );
 
+
   const handleParagraphClick = (index: number) => {
     setParagraphStates(paragraphStates.map((_, i) => i === index));
   };
 
   const handleButtonClick = () => {
-    setShowRedScreen(prevShowRedScreen => !prevShowRedScreen);
+    setShowRedScreen(!showRedScreen);
   };
 
-  const handleSidebarClose = () => {
-    setShowRedScreen(false); // Close the sidebar
-  };
+
+
 
   return (
     <div>
@@ -89,7 +86,7 @@ const SortComponent = () => {
       </div>
       {showRedScreen && (
         <div className={styles.overlay}>
-          <MobileSideBar />
+          <MobileSideBar toggleSidebarVisibility={handleButtonClick} />
         </div>
       )}
     </div>
