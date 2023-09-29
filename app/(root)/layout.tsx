@@ -1,5 +1,5 @@
 import React from 'react'
-import Masthead from '@/components/Masthead'
+import Masthead from '@/components/masthead'
 
 const layout = ({ children }: { children: React.ReactNode }) => {
     return (
