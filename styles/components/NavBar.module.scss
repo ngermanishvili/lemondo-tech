@@ -1,0 +1,39 @@
+@import "variables";
+@import "mixins";
+
+.newNavbar {
+  padding: 20px;
+  border-bottom: 1px solid #f1f1f5;
+  border-top: 1px solid #f1f1f5;
+  background-color: $color-white;
+}
+
+.newContainer {
+  @include container();
+  @include flexBox-between();
+}
+
+.newPart {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.newItem {
+  color: $color-dark-gray;
+  font-family: $font-family-medium;
+  font-size: 14px;
+  line-height: 18px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .newNavbar {
+    display: none !important;
+  }
+}

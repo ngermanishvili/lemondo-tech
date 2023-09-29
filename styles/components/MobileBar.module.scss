@@ -1,0 +1,28 @@
+/* SideBar.module.scss */
+
+.sidebarHidden {
+  // styling for hidden sidebar
+  display: none;
+}
+
+.sidebarVisible {
+  width: 100%;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  border: 1px solid #f1f1f5;
+  border-radius: 15px;
+  opacity: 1;
+  max-height: 164vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 999;
+  justify-content: center;
+}
+
+
+@media screen and (max-width: 1199px) {
+  .sidebar1 {
+    display: none;
+  }
+}
+

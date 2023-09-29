@@ -1,16 +1,18 @@
 @import "mixins";
 
-.slogan {
-  @include container();
-  @include flexBox-center();
-  height: 180px;
+.banner {
   margin-top: 30px;
-  margin-bottom: 40px;
-  border-radius: 15px;
   background: #0000004d 0% 0% no-repeat padding-box;
   background-image: url("/images/shutterstock@2x.png");
   background-repeat: no-repeat;
   background-size: cover;
+  height: 180px;
+
+  margin-bottom: 40px;
+  border-radius: 15px;
+  @include container();
+  @include flexBox-center();
+
   h1 {
     font-family: $font-family-medium;
     font-size: 36px;

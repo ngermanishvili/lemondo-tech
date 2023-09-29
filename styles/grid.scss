@@ -1,84 +1,69 @@
 // Mixin to manage responsive breakpoint areas
 @mixin respond-to($point-key, $areas: $breakpoint-areas) {
-    @if map-has-key($areas, $point-key) {
-      @media #{map-get($areas, $point-key)} {
-        @content;
-      }
+  @if map-has-key($areas, $point-key) {
+    @media #{map-get($areas, $point-key)} {
+      @content;
     }
-  
-    @else {
-      @warn "#{$point-key} doesn't exist in the map.";
-    }
+  } @else {
+    @warn "#{$point-key} doesn't exist in the map.";
   }
-  
-  
-  @mixin make-responsive-all() {
-    @each $point-key in map-keys($responsive-max-col) {
-  
-      @include respond-to($point-key) {
-        @for $i from 1 through map-get($responsive-max-col, $point-key) {
-  
-          .#{$point-key}-#{$i}>.col,
-          .#{$point-key}-#{$i}>[class*=col-] {
-            margin-left: 0;
-            width: 100% / $i;
-          }
+}
+
+@mixin make-responsive-all() {
+  @each $point-key in map-keys($responsive-max-col) {
+    @include respond-to($point-key) {
+      @for $i from 1 through map-get($responsive-max-col, $point-key) {
+        .#{$point-key}-#{$i} > .col,
+        .#{$point-key}-#{$i} > [class*="col-"] {
+          margin-left: 0;
+          width: 100% / $i;
         }
       }
     }
   }
-  
-  
-  @mixin flex-content($class-name, $columns: $grid-max-columns) {
-  
-    .#{$class-name}.col,
-    .#{$class-name}[class*=col-] {
-      margin-left: 0;
-    }
-  
-    .#{$class-name}.col,
-    .#{$class-name}.col-auto {
-      flex: 1 1 auto;
-      width: 0;
-    }
-  
-    @for $i from 1 through ($columns - 1) {
-      .#{$class-name}.col-#{$i} {
-        flex: $i $i auto;
-      }
+}
+
+@mixin flex-content($class-name, $columns: $grid-max-columns) {
+  .#{$class-name}.col,
+  .#{$class-name}[class*="col-"] {
+    margin-left: 0;
+  }
+
+  .#{$class-name}.col,
+  .#{$class-name}.col-auto {
+    flex: 1 1 auto;
+    width: 0;
+  }
+
+  @for $i from 1 through ($columns - 1) {
+    .#{$class-name}.col-#{$i} {
+      flex: $i $i auto;
     }
   }
-  
-  
-  @mixin make-flex-all() {
-  
-    @each $class-name,
-    $point-key in $flex-on-breakpoint {
-      @if ($point-key =='none') {
+}
+
+@mixin make-flex-all() {
+  @each $class-name, $point-key in $flex-on-breakpoint {
+    @if ($point-key == "none") {
+      @include flex-content($class-name);
+    } @else {
+      @include respond-to($point-key) {
         @include flex-content($class-name);
       }
-  
-      @else {
-        @include respond-to($point-key) {
-          @include flex-content($class-name);
-        }
+    }
+  }
+}
+
+@mixin make-order-all() {
+  @each $name, $point-key in $order-on-breakpoint {
+    @include respond-to($point-key) {
+      .order-first-#{$name} {
+        order: -1;
+      }
+
+      .order-last-#{$name} {
+        order: 1;
       }
     }
   }
-  
-  
-  @mixin make-order-all() {
-  
-    @each $name,
-    $point-key in $order-on-breakpoint {
-      @include respond-to($point-key) {
-        .order-first-#{$name} {
-          order: -1;
-        }
-  
-        .order-last-#{$name} {
-          order: 1;
-        }
-      }
-    }
-  }
+}
