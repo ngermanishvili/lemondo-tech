@@ -1,8 +1,8 @@
 import React from 'react';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
-import RenamedNavBar from '../../components/NavBar/index';
-import { navbarLeftLinks, navbarRightLinks } from '../../components/NavBar/data/navData';
+import RenamedNavBar from '../../components/navbar/index';
+import { navbarLeftLinks, navbarRightLinks } from '../../components/navbar/data/navData';
 
 describe('RenamedNavBar Component', () => {
     it('renders without crashing', () => {
