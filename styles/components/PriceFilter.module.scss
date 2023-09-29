@@ -7,7 +7,7 @@
   border: 1px solid #e5e5ed;
   border-radius: 10px;
   opacity: 1;
-  padding-left: 10px; // Adjust padding to your preference
+  padding-left: 10px;
   margin-top: 15px;
 }
 
@@ -23,6 +23,7 @@
 }
 
 .dollarSign2 {
+  margin-top: 14px;
   position: absolute;
   right: 198px;
   color: #92929d;
@@ -34,6 +35,8 @@
   position: relative;
 
   .dollarSign {
+    margin-top: 14px;
+
     margin-right: 8px;
     position: absolute;
     right: 14px;
@@ -48,5 +51,5 @@
   border: 1px solid #e5e5ed;
   border-radius: 10px;
   opacity: 1;
-  padding-left: 10px; // Adjust padding to your preference
+  padding-left: 10px;   
 }

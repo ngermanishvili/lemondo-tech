@@ -65,7 +65,9 @@ const MobileSideBar: FC<MobileSideBarProps> = ({ toggleSidebarVisibility }) => {
       <SymbolCountFilter symbolCountMin={symbolCountMin} symbolCountMax={symbolCountMax} onSymbolCountChange={handleSymbolCountChange} handleInputChange={handleInputChange} />
       <Categories selectedCategories={selectedCategories} onCategoryChange={handleCategoryChange} />
       <Domzone selectedDomzones={selectedDomzones} onDomzoneChange={handleDomzoneChange} />
-      <SidebarHeader onClose={toggleSidebarVisibility} />
+      <div className={styles.searchContainer}>
+        <button onClick={toggleSidebarVisibility} className={styles.search}>ძიება</button>
+      </div>
     </div>
   );
 };
