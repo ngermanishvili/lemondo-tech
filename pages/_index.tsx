@@ -1,4 +1,4 @@
-import Home from "../app/(root)/(home)/page";
+import Home from "../app/page";
 
 console.error = function () { };
 
