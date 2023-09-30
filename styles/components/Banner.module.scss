@@ -3,10 +3,11 @@
 .banner {
   margin-top: 30px;
   background: #0000004d 0% 0% no-repeat padding-box;
-  background-image: url("/images/shutterstock@2x.png");
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url("/images/shutterstock@2x.png") 0% 0% / cover no-repeat padding-box;
+  height: 180px;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 180px;
 
   margin-bottom: 40px;
   border-radius: 15px;

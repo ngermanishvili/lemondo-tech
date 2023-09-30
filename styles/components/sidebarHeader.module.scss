@@ -6,7 +6,7 @@
   align-items: center;
   height: 60px;
   font-weight: 700;
-  box-shadow: 0px 2px 5px #0000000f;
+  box-shadow: 0px 2px 5px #ccc9c90f;
 
   span {
     text-align: left;
@@ -19,5 +19,6 @@
     transform: matrix(-1, 0, 0, -1, 0, 0);
     background: transparent 0% 0% no-repeat padding-box;
     opacity: 1;
+    margin-left: 20px;
   }
 }

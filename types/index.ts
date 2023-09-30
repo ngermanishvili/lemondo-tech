@@ -1,5 +1,4 @@
 // Filter Criteria Interface types for use in the FilterCriteria class interface methods below */
-// FilterCriteria.ts
 export interface FilterCriteria {
   minPrice: string;
   maxPrice: string;

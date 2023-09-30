@@ -17,22 +17,27 @@ interface DomainItemProps {
   inBasket: boolean;
   onClick: () => void;
 }
+
 const DomainItem: React.FC<DomainItemProps> = ({ domain }) => {
   const { inc, dec } = useBasketStore();
   const [isInBasket, setIsInBasket] = useState(false);
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [windowWidth, setWindowWidth] = useState<number | null>(768);
 
   useEffect(() => {
-    const handleResize = () => {
+    if (typeof window !== 'undefined') {
       setWindowWidth(window.innerWidth);
-    };
 
-    window.addEventListener("resize", handleResize);
+      const handleResize = () => {
+        setWindowWidth(window.innerWidth);
+      };
 
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
+      window.addEventListener("resize", handleResize);
+      return () => {
+        window.removeEventListener("resize", handleResize);
+      };
+    }
   }, []);
+
   const thresholdWidth = 768;
   const handleToggleBasket = () => {
     if (!isInBasket) {
@@ -42,6 +47,7 @@ const DomainItem: React.FC<DomainItemProps> = ({ domain }) => {
     }
     setIsInBasket(!isInBasket);
   };
+  if (windowWidth === null) return null;
   if (windowWidth <= thresholdWidth) {
     return (
       <>

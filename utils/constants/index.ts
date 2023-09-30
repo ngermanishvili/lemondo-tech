@@ -43,7 +43,7 @@ const domainData = [
   },
   {
     id: "item-7",
-    name: "ilia.com",
+    name: "domenebi.com",
     priceLari: 750,
     priceDollar: "17,857.1",
     category: "chillandhavefun",
@@ -78,7 +78,7 @@ const domainData = [
   },
   {
     id: "item-12",
-    name: "gijashvili.net.ge",
+    name: "zoomer.net.ge",
     priceLari: 970,
     priceDollar: "17,857.1",
     category: "business",

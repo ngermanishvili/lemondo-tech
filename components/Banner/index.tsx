@@ -2,7 +2,7 @@
 import React from "react";
 import styles from "@/styles/components/Banner.module.scss";
 
-const Slogan: React.FC = () => {
+const Banner: React.FC = () => {
   return (
     <div className={styles.banner}>
       <h1>გაყიდე და იყიდე დომენი მარტივად</h1>
@@ -10,4 +10,4 @@ const Slogan: React.FC = () => {
   );
 };
 
-export default Slogan;
+export default Banner;

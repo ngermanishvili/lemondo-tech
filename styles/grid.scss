@@ -1,4 +1,3 @@
-// Mixin to manage responsive breakpoint areas
 @mixin respond-to($point-key, $areas: $breakpoint-areas) {
   @if map-has-key($areas, $point-key) {
     @media #{map-get($areas, $point-key)} {

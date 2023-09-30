@@ -36,13 +36,10 @@ const SortComponent = () => {
   const handleParagraphClick = (index: number) => {
     setParagraphStates(paragraphStates.map((_, i) => i === index));
   };
-  
+
   const handleButtonClick = () => {
     setShowRedScreen(!showRedScreen);
   };
-
-
-
 
   return (
     <div className={styles.sortContainer}>
