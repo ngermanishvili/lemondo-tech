@@ -7,77 +7,77 @@ const domainData = [
     category: "business",
   },
   {
-    id: "item-2", // Updated ID
+    id: "item-2",
     name: "realestate.edu.ge",
     priceLari: 540,
     priceDollar: "17,857.1",
     category: "realestate",
   },
   {
-    id: "item-3", // Updated ID
+    id: "item-3",
     name: "myauto.com.ge",
     priceLari: 980,
     priceDollar: "17,857.1",
     category: "auto",
   },
   {
-    id: "item-4", // Updated ID
+    id: "item-4",
     name: "medicsales.com",
     priceLari: 50,
     priceDollar: "17,857.1",
     category: "medic",
   },
   {
-    id: "item-5", // Updated ID
+    id: "item-5",
     name: "marketer.com",
     priceLari: 1250,
     priceDollar: "17,857.1",
     category: "technology",
   },
   {
-    id: "item-6", // Updated ID
+    id: "item-6",
     name: "gijashvili.ptv.com",
     priceLari: 940,
     priceDollar: "17,857.1",
     category: "games",
   },
   {
-    id: "item-7", // Updated ID
+    id: "item-7",
     name: "ilia.com",
     priceLari: 750,
     priceDollar: "17,857.1",
     category: "chillandhavefun",
   },
   {
-    id: "item-8", // Updated ID
+    id: "item-8",
     name: "gijashvili.space",
     priceLari: 650,
     priceDollar: "17,857.1",
     category: "media",
   },
   {
-    id: "item-9", // Updated ID
+    id: "item-9",
     name: "gijashvili.net",
     priceLari: 520,
     priceDollar: "17,857.1",
     category: "education",
   },
   {
-    id: "item-10", // Updated ID
+    id: "item-10",
     name: "gijashvili.com.ge",
     priceLari: 420,
     priceDollar: "17,857.1",
     category: "commerce",
   },
   {
-    id: "item-11", // Updated ID
+    id: "item-11",
     name: "gijashvili.edu.ge",
     priceLari: 888,
     priceDollar: "17,857.1",
     category: "finance",
   },
   {
-    id: "item-12", // Updated ID
+    id: "item-12",
     name: "gijashvili.net.ge",
     priceLari: 970,
     priceDollar: "17,857.1",

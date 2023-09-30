@@ -26,7 +26,6 @@ export const initialFilterCriteria: FilterCriteria = {
   selectedDomzones: [],
 };
 
-
 // SliderComponentProps
 export interface SliderComponentProps {
   minPrice: string;

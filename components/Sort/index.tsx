@@ -36,7 +36,7 @@ const SortComponent = () => {
   const handleParagraphClick = (index: number) => {
     setParagraphStates(paragraphStates.map((_, i) => i === index));
   };
-
+  
   const handleButtonClick = () => {
     setShowRedScreen(!showRedScreen);
   };
@@ -80,7 +80,7 @@ const SortComponent = () => {
       <div className={styles.filtering}>
         <button title="sorting" className={styles.button1} onClick={handleButtonClick}>
           სორტირება
-          <LuSettings2 className={styles.iconRight}  />
+          <LuSettings2 className={styles.iconRight} />
         </button>
         <button className={styles.button1}>სორტირება
           <Image src={ChevronDown} className={styles.iconRight2} alt="chevron-down" width={10} height={6} />

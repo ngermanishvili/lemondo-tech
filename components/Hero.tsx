@@ -3,7 +3,7 @@ import SideBarHero from './primarySidebar'
 
 const HeroComponent = () => {
   return (
-    <SideBarHero />
+    <SideBarHero /> //?! its a primary (SIDEBAR) component
 
   )
 }

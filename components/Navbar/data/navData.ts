@@ -6,10 +6,4 @@ export const navbarLeft = [
   "ვებგვერდი",
   "დომენის მარკეტი",
 ];
-
-export const navbarRight = [
-  "ჩვენს შესახებ",
-  "ფასები",
-  "ბლოგი",
-  "დახმარება",
-];
+export const navbarRight = ["ჩვენს შესახებ", "ფასები", "ბლოგი", "დახმარება"];
