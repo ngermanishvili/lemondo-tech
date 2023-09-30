@@ -20,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body style={{ background: '#FAFAFB 0% 0% no-repeat padding-box;', height: 'auto' }}>
+      <body style={{ background: '#FAFAFB 0% 0% no-repeat padding-box', height: 'auto' }}>
         {children}
       </body>
     </html>

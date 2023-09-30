@@ -1,4 +1,5 @@
 "use client";
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import headerStyles from "@/styles/components/Header.module.scss";
@@ -8,7 +9,7 @@ import CartIcon from "@/public/images/cart-gray.svg";
 import FlagGeIcon from "@/public/images/flag-ge.svg";
 import UserIcon from "@/public/images/user.svg";
 import ArrowDownIcon from "@/public/images/arrow-down.svg";
-import { useBasketStore } from "../../store/masthead.store"; //? zustand Store.
+import { useBasketStore } from "../../store/masthead.store";
 import Hamburger from "@/public/images/Group 4795.svg";
 
 const Header: React.FC = () => {
