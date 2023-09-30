@@ -3,7 +3,7 @@ import React from "react";
 import { navbarLeft, navbarRight } from "./data/navData";
 import RenamedNavBarStyles from "@/styles/components/NavBar.module.scss";
 
-const RenamedNavBar: React.FC = (): JSX.Element => {
+const NavBar: React.FC = (): JSX.Element => {
     const renderNavBarItems = (links: string[]): JSX.Element[] => links.map((link: string, index: number): JSX.Element => (
         <div key={index} className={RenamedNavBarStyles.newItem}>
             {link}
@@ -24,4 +24,4 @@ const RenamedNavBar: React.FC = (): JSX.Element => {
     );
 };
 
-export default RenamedNavBar;
+export default NavBar;
