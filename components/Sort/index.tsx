@@ -4,6 +4,8 @@ import styles from "@/styles/components/SortComponent.module.scss";
 import Link from "next/link";
 import MobileSideBar from "../mobile/index";
 import { LuSettings2 } from 'react-icons/lu';
+import Image from "next/image";
+import ChevronDown from '@/public/images/arrow-down.svg'
 
 
 interface FilterCriteria {
@@ -43,7 +45,7 @@ const SortComponent = () => {
 
 
   return (
-    <div>
+    <div className={styles.sortContainer}>
       <div className={styles.title}>
         <div style={{ marginRight: "10px" }}>
           <p className={`${styles.titleOne} ${paragraphStates[0] && styles.clickedTitleOne}`}>
@@ -78,10 +80,11 @@ const SortComponent = () => {
       <div className={styles.filtering}>
         <button title="sorting" className={styles.button1} onClick={handleButtonClick}>
           სორტირება
-          <LuSettings2 className={styles.iconRight} />
+          <LuSettings2 className={styles.iconRight}  />
         </button>
         <button className={styles.button1}>სორტირება
-          <LuSettings2 className={styles.iconRight2} />
+          <Image src={ChevronDown} className={styles.iconRight2} alt="chevron-down" width={10} height={6} />
+
         </button>
       </div>
       {showRedScreen && (

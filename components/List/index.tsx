@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import React, { useState } from "react";
 import styles from "@/styles/components/List.module.scss";
 import { useBasketStore } from "../../store/masthead.store";
@@ -18,6 +18,7 @@ const List: React.FC = () => {
   const { minPrice, maxPrice, symbolMin, symbolMax, symbolCountMin, symbolCountMax, charPrefix, selectedCategories, selectedDomzones,
   } = filterCriteria;
 
+  //! Filter Logic for the selected categories and Domzones selected by the user using the specified filter criteria.
   //! Filter Logic for the selected categories and Domzones selected by the user using the specified filter criteria.
   const filteredDomainData = domainData
     .filter((domain: Domain) => {
@@ -45,24 +46,31 @@ const List: React.FC = () => {
     })
     .sort((a: Domain, b: Domain) => a.name.length - b.name.length);
 
+  // Check if filteredDomainData is empty
+  const isFilteredDataEmpty = filteredDomainData.length === 0;
 
-  //? mapping the filtered domain data to a list of DomainItems  that match the filter criteria
   return (
     <div className={styles["domenebi-mtavari-container"]}>
-      {filteredDomainData.map((domain: Domain) => (
-        <DomainItem key={domain.id} domain={domain} inBasket={inBasket.includes(domain.id)}
-          onClick={() => {
-            if (inBasket.includes(domain.id)) {
-              dec(); //? Decrement the quantity of the domain in the basket - from zustand store 
-              setInBasket(inBasket.filter((id) => id !== domain.id));
-            } else {
-              inc(); //? Increment the quantity of the domain in the basket - from zustand store 
-              setInBasket([...inBasket, domain.id]);
-            }
-          }}
-        />
-      ))}
-      <DomainError />
+      {isFilteredDataEmpty ? (
+        <DomainError />
+      ) : (
+        filteredDomainData.map((domain: Domain) => (
+          <DomainItem
+            key={domain.id}
+            domain={domain}
+            inBasket={inBasket.includes(domain.id)}
+            onClick={() => {
+              if (inBasket.includes(domain.id)) {
+                dec(); //? Decrement the quantity of the domain in the basket - from zustand store 
+                setInBasket(inBasket.filter((id) => id !== domain.id));
+              } else {
+                inc(); //? Increment the quantity of the domain in the basket - from zustand store 
+                setInBasket([...inBasket, domain.id]);
+              }
+            }}
+          />
+        ))
+      )}
     </div>
   );
 };
