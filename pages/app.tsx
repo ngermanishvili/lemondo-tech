@@ -1,7 +1,7 @@
 import { AppProps } from 'next/app';
 import React from 'react';
 
-
+ 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <React.StrictMode>
@@ -9,5 +9,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     </React.StrictMode>
   );
 }
+
+
 
 export default MyApp;
